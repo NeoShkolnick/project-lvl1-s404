@@ -7,14 +7,17 @@
   "files": [
     "dist"
   ],
-  "description": "",
-  "main": "index.js",
+  "description": "Brain game for self-studying usage course on Hexlet",
   "scripts": {
     "build": "NODE_ENV=production babel src --out-dir dist --source-maps inline",
-    "prepublishOnly": "npm run build",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "prepublishOnly": "npm run build"
   },
-  "author": "",
+  "keywords": [
+    "Brain Games",
+    "Hexlet",
+    "console-game"
+  ],
+  "author": "Nikolay Mizenko",
   "license": "ISC",
   "devDependencies": {
     "@babel/cli": "^7.2.3",
