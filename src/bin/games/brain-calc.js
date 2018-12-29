@@ -1,5 +1,5 @@
 #!/usr/bin/env node
 
-import { expressionGame } from '../..';
+import expressionGame from './calc-module';
 
 expressionGame();
