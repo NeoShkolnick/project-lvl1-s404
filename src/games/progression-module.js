@@ -1,25 +1,24 @@
-import { game, printDateToUser } from '../..';
+import game from '..';
 import generateNum from './utils';
 
-const progressionQuestion = () => {
+const getProgressionQuestionAndAnswer = () => {
   const lenOfProgression = 10;
   let currentPointProgression = generateNum(0, 100);
   const intervalProgression = generateNum(1, 10);
   const missingStep = generateNum(0, lenOfProgression - 1);
   let correctAnswer;
-  let outStr = '';
+  let question = '';
   for (let i = 0; i < lenOfProgression; i += 1) {
     if (i !== missingStep) {
-      outStr = `${outStr}${currentPointProgression} `;
+      question = `${question}${currentPointProgression} `;
     } else {
       correctAnswer = currentPointProgression;
-      outStr = `${outStr} .. `;
+      question = `${question} .. `;
     }
     currentPointProgression += intervalProgression;
   }
-  printDateToUser(outStr);
-  return String(correctAnswer);
+  return [question, String(correctAnswer)];
 };
 
 const greeting = 'What number is missing in the progression?';
-export default () => game(greeting, progressionQuestion);
+export default () => game(greeting, getProgressionQuestionAndAnswer);

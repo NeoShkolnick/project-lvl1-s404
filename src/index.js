@@ -1,26 +1,28 @@
 import readlineSync from 'readline-sync';
 
-export const printDateToUser = str => console.log(str);
+export const printDataToUser = str => console.log(str);
 
-export const getDateFromUser = answer => readlineSync.question(answer);
+export const getDataFromUser = answer => readlineSync.question(answer);
 
 const numberOfRounds = 3;
-export const game = (greeting, question) => {
-  printDateToUser(`Welcome to the Brain Games!\n${greeting}\n`);
-  const name = getDateFromUser('May I have you name? ');
-  printDateToUser(`Hello, ${name}!\n`);
+export default (greeting, getQuestionAndAnswer) => {
+  printDataToUser(`Welcome to the Brain Games!\n${greeting}\n`);
+  const name = getDataFromUser('May I have you name? ');
+  printDataToUser(`Hello, ${name}!\n`);
 
   let endingPhrase = 'Congratulations, ';
   for (let i = 0; i < numberOfRounds; i += 1) {
-    const correctAnswer = question();
-    const answer = getDateFromUser('Your answer: ');
+    const tmp = getQuestionAndAnswer();
+    printDataToUser(`Question: ${tmp[0]}`);
+    const correctAnswer = tmp[1];
+    const answer = getDataFromUser('Your answer: ');
     if (correctAnswer === answer) {
-      printDateToUser('Correct!');
+      printDataToUser('Correct!');
     } else {
-      printDateToUser(`${answer} is wrong answer ;(. Correct answer was ${correctAnswer}.`);
+      printDataToUser(`${answer} is wrong answer ;(. Correct answer was ${correctAnswer}.`);
       endingPhrase = "Let's try again, ";
       break;
     }
   }
-  printDateToUser(`${endingPhrase}${name}!`);
+  printDataToUser(`${endingPhrase}${name}!`);
 };
