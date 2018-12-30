@@ -10,6 +10,9 @@ calc-game:
 gcd-game:
 	npx babel-node -- src/bin/games/brain-gcd.js
 
+progression-game:
+	npx babel-node -- src/bin/games/brain-progression.js
+
 publish:
 	npm publish
 

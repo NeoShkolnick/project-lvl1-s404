@@ -1,4 +1,5 @@
-import game from '../..';
+import { game, printDateToUser } from '../..';
+import generateNum from './utils';
 
 const findGcd = (x, y) => (x !== 0 ? findGcd(y % x, x) : y);
 
@@ -7,12 +8,13 @@ const gcdQuestion = () => {
   let firstNumber;
   let secondNumber;
   while (gcd === 1 || firstNumber === secondNumber) {
-    firstNumber = Math.floor(Math.random() * 150) + 2;
-    secondNumber = Math.floor(Math.random() * 150) + 2;
+    firstNumber = generateNum(2, 150);
+    secondNumber = generateNum(2, 150);
     gcd = findGcd(firstNumber, secondNumber);
   }
-  console.log(`Question: ${firstNumber} ${secondNumber}`);
+  printDateToUser(`Question: ${firstNumber} ${secondNumber}`);
   return String(gcd);
 };
 
-export default () => game('Find the greatest common divisor of given numbers.\n', gcdQuestion);
+const greeting = 'Find the greatest common divisor of given numbers.';
+export default () => game(greeting, gcdQuestion);

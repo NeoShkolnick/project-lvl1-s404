@@ -1,9 +1,13 @@
-import game from '../..';
+import { game, printDateToUser } from '../..';
+import generateNum from './utils';
+
+const isEven = number => (number % 2 === 0 ? 'yes' : 'no');
 
 const evenQuestion = () => {
-  const questionNumber = Math.floor(Math.random() * 100);
-  console.log(`Question: ${questionNumber}`);
-  return questionNumber % 2 === 0 ? 'yes' : 'no';
+  const question = generateNum(0, 100);
+  printDateToUser(`Question: ${question}`);
+  return isEven(question);
 };
 
-export default () => game('Answer "yes" if number even otherwise answer "no".\n', evenQuestion);
+const greeting = 'Answer "yes" if number even otherwise answer "no".';
+export default () => game(greeting, evenQuestion);
