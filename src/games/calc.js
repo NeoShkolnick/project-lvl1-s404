@@ -1,5 +1,5 @@
 import game from '..';
-import generateNum from './utils';
+import generateNum from '../utils';
 
 const getExpressionQuestionAndAnswer = () => {
   const firstNumber = generateNum(1, 50);

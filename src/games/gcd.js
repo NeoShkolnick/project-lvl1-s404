@@ -1,5 +1,5 @@
 import game from '..';
-import generateNum from './utils';
+import generateNum from '../utils';
 
 const findGcd = (x, y) => (x !== 0 ? findGcd(y % x, x) : y);
 

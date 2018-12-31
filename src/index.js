@@ -8,10 +8,8 @@ export default (greeting, getQuestionAndAnswer) => {
 
   let endingPhrase = 'Congratulations, ';
   for (let i = 0; i < numberOfRounds; i += 1) {
-    const tmp = getQuestionAndAnswer();
-    console.log(`Question: ${tmp[0]}`);
-    const correctAnswer = tmp[1];
-
+    const [question, correctAnswer] = getQuestionAndAnswer();
+    console.log(`Question: ${question}`);
     const answer = readlineSync.question('Your answer: ');
     if (correctAnswer === answer) {
       console.log('Correct!');

@@ -1,23 +1,22 @@
 import game from '..';
-import generateNum from './utils';
+import generateNum from '../utils';
 
+const lenOfProgression = 10;
 const getProgressionQuestionAndAnswer = () => {
-  const lenOfProgression = 10;
-  let currentPointProgression = generateNum(0, 100);
+  const startProgression = generateNum(0, 100);
   const intervalProgression = generateNum(1, 10);
   const missingStep = generateNum(0, lenOfProgression - 1);
-  let correctAnswer;
+
+  const correctAnswer = startProgression + missingStep * intervalProgression;
   let question = '';
   for (let i = 0; i < lenOfProgression; i += 1) {
     if (i !== missingStep) {
-      question = `${question}${currentPointProgression} `;
+      question = `${question}${startProgression + i * intervalProgression} `;
     } else {
-      correctAnswer = currentPointProgression;
       question = `${question} .. `;
     }
-    currentPointProgression += intervalProgression;
   }
-  return [question, String(correctAnswer)];
+  return [question.trimEnd(), String(correctAnswer)];
 };
 
 const greeting = 'What number is missing in the progression?';

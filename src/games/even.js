@@ -1,10 +1,10 @@
 import game from '..';
-import generateNum from './utils';
+import generateNum from '../utils';
 
 const isEven = number => (number % 2 === 0);
 
 const getEvenQuestionAndAnswer = () => {
-  const question = generateNum(0, 100);
+  const question = generateNum(1, 100);
   const correctAnswer = isEven(question) ? 'yes' : 'no';
   return [question, correctAnswer];
 };
